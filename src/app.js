@@ -37,7 +37,7 @@
     { max: Infinity, color: "#e0603b", label: "> $80 / tCO₂" },
   ];
   const NO_DEST = "#6d7f8c";
-  const WELL_COLOR = "#2dd4bf";
+  const WELL_COLOR = "#e85ad6";  // magenta — distinct from plant cost bands (green/amber/red) & routes
 
   const ROUTE_MODE = {
     pipeline:     { color: "#3b9eff", label: "CO₂ pipeline (existing)", dash: null },
@@ -124,7 +124,7 @@
       : w.status === "draft" ? 0.55 : 0.35;
     const r = w.co2_mtpa ? clamp(4, 4 + Math.sqrt(w.co2_mtpa) * 2.6, 13) : 5;
     L.circleMarker([w.lat, w.lon], {
-      renderer: wellRenderer, radius: r, fillColor: WELL_COLOR, color: "#04201d",
+      renderer: wellRenderer, radius: r, fillColor: WELL_COLOR, color: "#2a0f24",
       weight: 1.2, fillOpacity: op,
     }).bindPopup(wellPopup(w), { maxWidth: 280 }).addTo(wellsLayer);
   });

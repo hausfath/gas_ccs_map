@@ -99,7 +99,7 @@ select {
 .sw-basin { background: rgba(120,170,255,.35); border: 1px solid #6f93c9; }
 /* Gas + CCS overlay swatches */
 .sw-plants { background: #e0a838; border-radius: 50%; }
-.sw-wells { background: #2dd4bf; border-radius: 50%; }
+.sw-wells { background: #e85ad6; border-radius: 50%; }
 .sw-basins { background: rgba(111,147,201,.3); border: 1px solid #7aa6ff; }
 /* US/EU detail-scope overlay swatches */
 .sw-wwtp  { background: #5bb0c7; border-radius: 50%; }
