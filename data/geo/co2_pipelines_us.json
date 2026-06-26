@@ -1,0 +1,73 @@
+{
+  "_meta": "Curated geometry of the major EXISTING US CO2 trunk pipelines (~the real ~5,000-mile EOR network), as ordered [name, lat, lon] waypoints. Same representation as river_corridors in transport_nodes_us.json: a shared waypoint NAME across corridors = a junction/hub (e.g. 'Denver City TX', 'Jackson Dome MS', 'Donaldsonville LA', 'Bravo Dome NM'). Approximate screening geometry traced from public maps (Global Energy Monitor CO2 pipeline tracker; NETL/EIA references) — NOT a surveyed centerline. Cross-border legs (Weyburn) truncate at the US perimeter for context.",
+
+  "cortez": [
+    ["McElmo Dome CO", 37.30, -108.80],
+    ["Cuba NM", 36.02, -106.96],
+    ["Santa Rosa NM", 34.94, -104.68],
+    ["Fort Sumner NM", 34.47, -104.24],
+    ["Tatum NM", 33.26, -103.31],
+    ["Denver City TX", 32.97, -102.83]
+  ],
+
+  "sheep_mountain": [
+    ["Sheep Mountain CO", 38.00, -105.60],
+    ["Walsenburg CO", 37.62, -104.78],
+    ["Clayton NM", 36.45, -103.18],
+    ["Bravo Dome NM", 36.00, -103.40]
+  ],
+
+  "bravo": [
+    ["Bravo Dome NM", 36.00, -103.40],
+    ["Clovis NM", 34.40, -103.20],
+    ["Denver City TX", 32.97, -102.83]
+  ],
+
+  "central_basin": [
+    ["Denver City TX", 32.97, -102.83],
+    ["Seminole TX", 32.72, -102.64],
+    ["Andrews TX", 32.32, -102.55],
+    ["Goldsmith TX", 31.98, -102.61],
+    ["McCamey TX", 31.13, -102.22]
+  ],
+
+  "canyon_reef": [
+    ["McCamey TX", 31.13, -102.22],
+    ["Snyder TX (SACROC)", 32.72, -100.92]
+  ],
+
+  "nejd": [
+    ["Jackson Dome MS", 32.35, -90.00],
+    ["Brookhaven MS", 31.58, -90.44],
+    ["Baton Rouge LA", 30.45, -91.19],
+    ["Donaldsonville LA", 30.10, -90.99]
+  ],
+
+  "free_state": [
+    ["Jackson Dome MS", 32.35, -90.00],
+    ["Forest MS", 32.36, -89.47],
+    ["Heidelberg MS", 31.88, -88.98]
+  ],
+
+  "green": [
+    ["Donaldsonville LA", 30.10, -90.99],
+    ["Lake Charles LA", 30.23, -93.22],
+    ["Beaumont TX", 30.08, -94.10],
+    ["Hastings TX", 29.35, -95.25]
+  ],
+
+  "greencore": [
+    ["Lost Cabin WY", 43.29, -107.61],
+    ["Kaycee WY", 43.71, -106.64],
+    ["Gillette WY", 44.29, -105.50],
+    ["Broadus MT", 45.44, -105.41],
+    ["Bell Creek MT", 45.10, -105.25]
+  ],
+
+  "weyburn": [
+    ["Beulah ND", 47.27, -101.77],
+    ["Donnybrook ND", 48.50, -101.88],
+    ["US-Canada border ND", 49.00, -102.30],
+    ["Weyburn SK", 49.66, -103.85]
+  ]
+}

@@ -1,0 +1,1543 @@
+{
+ "_meta": "v2 multimodal transport nodes. rail_terminals = real NTAD TOFC/COFC (deduped). coastal_ports routed by searoute (real marine geometry). river_corridors = curated navigable inland waterways; barge follows these (no land crossing); shared waypoint names are junctions.",
+ "rail_terminals": [
+  {
+   "name": "Seaport (Olympia, WA)",
+   "lat": 47.0521,
+   "lon": -122.9002
+  },
+  {
+   "name": "Port Westward Industrial Park (Clatskanie, OR)",
+   "lat": 46.1717,
+   "lon": -123.1584
+  },
+  {
+   "name": "Terminal (Port Hueneme, CA)",
+   "lat": 34.148,
+   "lon": -119.201
+  },
+  {
+   "name": "General Cargo Dock (Point Comfort, TX)",
+   "lat": 28.6465,
+   "lon": -96.5536
+  },
+  {
+   "name": "Container Terminal (Mobile, AL)",
+   "lat": 30.6694,
+   "lon": -88.0409
+  },
+  {
+   "name": "Main Docks/General Cargo (Mobile, AL)",
+   "lat": 30.705,
+   "lon": -88.0439
+  },
+  {
+   "name": "Intermodal Container Transfer Facility (ICTF) (Mobile, AL)",
+   "lat": 30.6588,
+   "lon": -88.0545
+  },
+  {
+   "name": "West Terminal (Panama City, FL)",
+   "lat": 30.183,
+   "lon": -85.7303
+  },
+  {
+   "name": "Port of Fernandina (Fernandina Beach, FL)",
+   "lat": 30.6766,
+   "lon": -81.4631
+  },
+  {
+   "name": "Ocean Terminal (Savannah, GA)",
+   "lat": 32.0848,
+   "lon": -81.107
+  },
+  {
+   "name": "Appalachian Regional Port (ARP) (Crandall, GA)",
+   "lat": 34.8973,
+   "lon": -84.7486
+  },
+  {
+   "name": "Charlotte Inland Port (CIP) (Charlotte, NC)",
+   "lat": 35.2715,
+   "lon": -80.9095
+  },
+  {
+   "name": "Portsmouth Empty Container Yard (PPCY) (Portsmouth, VA)",
+   "lat": 36.8524,
+   "lon": -76.3172
+  },
+  {
+   "name": "Richmond Marine Termianl (RMT) (Richmond, VA)",
+   "lat": 37.4598,
+   "lon": -77.4236
+  },
+  {
+   "name": "GCT Bayonne Terminal, NJ (Jersey City, NJ)",
+   "lat": 40.6711,
+   "lon": -74.0706
+  },
+  {
+   "name": "Red Hook Container Terminal (Brooklyn, NY)",
+   "lat": 40.6845,
+   "lon": -74.0075
+  },
+  {
+   "name": "Balzano Marine Terminal (Camden, NJ)",
+   "lat": 39.9376,
+   "lon": -75.1289
+  },
+  {
+   "name": "Marine Terminal (Wilmington, DE)",
+   "lat": 39.7159,
+   "lon": -75.5308
+  },
+  {
+   "name": "North Charleston Terminal, SC (North Charleston, SC)",
+   "lat": 32.9056,
+   "lon": -79.9651
+  },
+  {
+   "name": "Wando Welch Terminal (Mt. Pleasant, SC)",
+   "lat": 32.8343,
+   "lon": -79.8837
+  },
+  {
+   "name": "Hugh K. Leatherman Terminal (North Charleston, SC)",
+   "lat": 32.8402,
+   "lon": -79.9429
+  },
+  {
+   "name": "Inland Port Greer (Greer, SC)",
+   "lat": 34.9332,
+   "lon": -82.1987
+  },
+  {
+   "name": "Inland Port Dillon (Dillon, SC)",
+   "lat": 34.3883,
+   "lon": -79.3986
+  },
+  {
+   "name": "Blount Island Marine Terminal (Jacksonville, FL)",
+   "lat": 30.4028,
+   "lon": -81.5378
+  },
+  {
+   "name": "Dames Point Marine Terminal (Jacksonville, FL)",
+   "lat": 30.4025,
+   "lon": -81.5686
+  },
+  {
+   "name": "Talleyrand Marine Terminal (Jacksonville, FL)",
+   "lat": 30.3496,
+   "lon": -81.6243
+  },
+  {
+   "name": "Talleyrand Intermodal Container Transfer Facility (ICTF) (Jacksonville, FL)",
+   "lat": 30.3545,
+   "lon": -81.6264
+  },
+  {
+   "name": "Hooker's Point Container Terminal (Tampa, FL)",
+   "lat": 27.9147,
+   "lon": -82.4317
+  },
+  {
+   "name": "Bayport Container Terminal (Pasadena, TX)",
+   "lat": 29.601,
+   "lon": -94.9992
+  },
+  {
+   "name": "Jacintoport Terminal (Houston, TX)",
+   "lat": 29.7473,
+   "lon": -95.1154
+  },
+  {
+   "name": "Deep Water Port (West Pier Terminal) (Gulfport, MS)",
+   "lat": 30.3598,
+   "lon": -89.0966
+  },
+  {
+   "name": "Palm Beach Terminal (Riviera Beach, FL)",
+   "lat": 26.7692,
+   "lon": -80.0592
+  },
+  {
+   "name": "Velasco Container Terminal (Freeport, TX)",
+   "lat": 28.9422,
+   "lon": -95.3457
+  },
+  {
+   "name": "Matson Terminal (Oakland, CA)",
+   "lat": 37.7971,
+   "lon": -122.2955
+  },
+  {
+   "name": "Charles P. Howard Terminal (Oakland, CA)",
+   "lat": 37.7979,
+   "lon": -122.2847
+  },
+  {
+   "name": "TraPac Terminal (Oakland, CA)",
+   "lat": 37.8105,
+   "lon": -122.3146
+  },
+  {
+   "name": "Ben E. Nutter Terminal (Oakland, CA)",
+   "lat": 37.8051,
+   "lon": -122.337
+  },
+  {
+   "name": "Oakland International Container Terminal (OICT) (Oakland, CA)",
+   "lat": 37.7993,
+   "lon": -122.3076
+  },
+  {
+   "name": "Washington United Terminals (WUT) (Tacoma, WA)",
+   "lat": 47.2641,
+   "lon": -122.3957
+  },
+  {
+   "name": "Husky Terminal (Tacoma, WA)",
+   "lat": 47.27,
+   "lon": -122.4044
+  },
+  {
+   "name": "East Sitcum Terminal (Tacoma, WA)",
+   "lat": 47.2723,
+   "lon": -122.4149
+  },
+  {
+   "name": "West Sitcum Terminal (Tacoma, WA)",
+   "lat": 47.2583,
+   "lon": -122.4119
+  },
+  {
+   "name": "Pierce County Terminal (PCT) (Tacoma, WA)",
+   "lat": 47.2544,
+   "lon": -122.3668
+  },
+  {
+   "name": "Terminal 115 (T-115) (Seattle, WA)",
+   "lat": 47.5422,
+   "lon": -122.3411
+  },
+  {
+   "name": "Terminal 18 (T-18) (Seattle, WA)",
+   "lat": 47.574,
+   "lon": -122.3485
+  },
+  {
+   "name": "Terminal 30 (T-30) (Seattle, WA)",
+   "lat": 47.5861,
+   "lon": -122.3407
+  },
+  {
+   "name": "General Cargo Terminal (Anchorage, AK)",
+   "lat": 61.2292,
+   "lon": -149.8908
+  },
+  {
+   "name": "West Basin Container Terminal (WBCT) - China Shipping Holding (Berths 100-109) (San Pedro, CA)",
+   "lat": 33.7541,
+   "lon": -118.2892
+  },
+  {
+   "name": "West Basin Container Terminal (WBCT) - Everglades Company Terminal (Berths 120-126) (San Pedro, CA)",
+   "lat": 33.7564,
+   "lon": -118.288
+  },
+  {
+   "name": "Yusen Terminals (Berths 212-225) (Terminal Island, CA)",
+   "lat": 33.757,
+   "lon": -118.2506
+  },
+  {
+   "name": "Everport Terminal Services (Berths 226-236) (Terminal Island, CA)",
+   "lat": 33.7426,
+   "lon": -118.2667
+  },
+  {
+   "name": "Terminal (Iuka, MS)",
+   "lat": 34.976,
+   "lon": -88.2393
+  },
+  {
+   "name": "Terminal (Fulton, MS)",
+   "lat": 34.2441,
+   "lon": -88.4141
+  },
+  {
+   "name": "Terminal (Natchez, MS)",
+   "lat": 31.5386,
+   "lon": -91.439
+  },
+  {
+   "name": "Port Bienville Industrial Park (Bay St Louis, MS)",
+   "lat": 30.2422,
+   "lon": -89.5438
+  },
+  {
+   "name": "Terminal (Brownsville, TX)",
+   "lat": 25.9516,
+   "lon": -97.4097
+  },
+  {
+   "name": "Long Mott Harbor (Long Mott, TX)",
+   "lat": 28.4919,
+   "lon": -96.7769
+  },
+  {
+   "name": "Savannah Gateway Industrial Hub (Rincon, GA)",
+   "lat": 32.2673,
+   "lon": -81.2378
+  },
+  {
+   "name": "Butler Intermodal Terminal (Shell Rock, IA)",
+   "lat": 42.732,
+   "lon": -92.6171
+  },
+  {
+   "name": "Salem Marine Terminal (SMT) (Salem, NJ)",
+   "lat": 39.5721,
+   "lon": -75.485
+  },
+  {
+   "name": "Garden City Marine Terminal (Savannah, GA)",
+   "lat": 32.1284,
+   "lon": -81.1475
+  },
+  {
+   "name": "Terminal 5 (Seattle, WA)",
+   "lat": 47.5747,
+   "lon": -122.3669
+  },
+  {
+   "name": "General Cargo Dock (Shreveport, LA)",
+   "lat": 32.3627,
+   "lon": -93.63
+  },
+  {
+   "name": "Albany, NY - Mechanicville (Mechanicville, NY)",
+   "lat": 42.9147,
+   "lon": -73.7095
+  },
+  {
+   "name": "Albuquerque, NM (Albuquerque, NM)",
+   "lat": 35.0476,
+   "lon": -106.6533
+  },
+  {
+   "name": "Alliance, TX (Haslet, TX)",
+   "lat": 32.9999,
+   "lon": -97.347
+  },
+  {
+   "name": "Arcadia, WI (Arcadia, WI)",
+   "lat": 44.2512,
+   "lon": -91.5097
+  },
+  {
+   "name": "Atlanta, GA - Austell (Austell, GA)",
+   "lat": 33.8258,
+   "lon": -84.6551
+  },
+  {
+   "name": "Atlanta, GA - Hulsey (Atlanta, GA)",
+   "lat": 33.7516,
+   "lon": -84.3671
+  },
+  {
+   "name": "Atlanta, GA - Inman (Atlanta, GA)",
+   "lat": 33.794,
+   "lon": -84.4392
+  },
+  {
+   "name": "Ayer, MA (Ayer, MA)",
+   "lat": 42.5427,
+   "lon": -71.5923
+  },
+  {
+   "name": "Baltimore, MD (Baltimore, MD)",
+   "lat": 39.2928,
+   "lon": -76.5545
+  },
+  {
+   "name": "Baltimore, MD - Seagirt Marine Terminal (Baltimore, MD)",
+   "lat": 39.262,
+   "lon": -76.5493
+  },
+  {
+   "name": "Bessemer, AL - Central Alabama ICTF (CAICTF) (North Bessemer, AL)",
+   "lat": 33.41,
+   "lon": -86.9497
+  },
+  {
+   "name": "Bethlehem, PA (Bethlehem, PA)",
+   "lat": 40.6034,
+   "lon": -75.334
+  },
+  {
+   "name": "Birmingham, AL (McCalla, AL)",
+   "lat": 33.3016,
+   "lon": -87.0382
+  },
+  {
+   "name": "Blue Island, IL (Blue Island, IL)",
+   "lat": 41.6622,
+   "lon": -87.6734
+  },
+  {
+   "name": "Buffalo, NY (Blasdell, NY)",
+   "lat": 42.8161,
+   "lon": -78.8347
+  },
+  {
+   "name": "Buffalo, NY (Buffalo, NY)",
+   "lat": 42.889,
+   "lon": -78.7866
+  },
+  {
+   "name": "Chambersburg, PA (Chambersburg, PA)",
+   "lat": 39.9026,
+   "lon": -77.6535
+  },
+  {
+   "name": "Charleston, SC (North Charleston, SC)",
+   "lat": 32.8665,
+   "lon": -79.9954
+  },
+  {
+   "name": "Charlotte, NC (Charlotte, NC)",
+   "lat": 35.2742,
+   "lon": -80.8949
+  },
+  {
+   "name": "Charlotte, NC (Charlotte, NC)",
+   "lat": 35.197,
+   "lon": -80.9575
+  },
+  {
+   "name": "Chiacgo, IL - Dolton (Yard Center) (Dolton, IL)",
+   "lat": 41.6233,
+   "lon": -87.6131
+  },
+  {
+   "name": "Chiacgo, IL - Northlake (Global II) (Northlake, IL)",
+   "lat": 41.899,
+   "lon": -87.915
+  },
+  {
+   "name": "Chicago, IL -  59th Street (Chicago, IL)",
+   "lat": 41.7838,
+   "lon": -87.677
+  },
+  {
+   "name": "Chicago, IL -  Bedford Park (Bedford Park, IL)",
+   "lat": 41.7647,
+   "lon": -87.7931
+  },
+  {
+   "name": "Chicago, IL - 14th Street (Global I) (Chicago, IL)",
+   "lat": 41.8605,
+   "lon": -87.681
+  },
+  {
+   "name": "Chicago, IL - 47th Street (Chicago, IL)",
+   "lat": 41.8055,
+   "lon": -87.6366
+  },
+  {
+   "name": "Chicago, IL - 63rd Street (Chicago, IL)",
+   "lat": 41.7779,
+   "lon": -87.6189
+  },
+  {
+   "name": "Chicago, IL - Calumet (Chicago, IL)",
+   "lat": 41.7057,
+   "lon": -87.5773
+  },
+  {
+   "name": "Chicago, IL - Cicero (Cicero, IL)",
+   "lat": 41.8434,
+   "lon": -87.7604
+  },
+  {
+   "name": "Chicago, IL - Corwith (Chicago, IL)",
+   "lat": 41.8203,
+   "lon": -87.7089
+  },
+  {
+   "name": "Chicago, IL - Franklin Park (Bensenville Intermodal Terminal) (Franklin Park, IL)",
+   "lat": 41.9413,
+   "lon": -87.8936
+  },
+  {
+   "name": "Chicago, IL - Harvey (Gateway) (Harvey, IL)",
+   "lat": 41.5823,
+   "lon": -87.6519
+  },
+  {
+   "name": "Chicago, IL - Joliet (Global IV) (Joliet, IL)",
+   "lat": 41.4694,
+   "lon": -88.1153
+  },
+  {
+   "name": "Chicago, IL - Landers (Chicago, IL)",
+   "lat": 41.7557,
+   "lon": -87.6867
+  },
+  {
+   "name": "Chicago, IL - Logistics Park Chicago (LPC) (Elwood, IL)",
+   "lat": 41.4002,
+   "lon": -88.1488
+  },
+  {
+   "name": "Chicago, IL - Rochelle (Global III) (Rochelle, IL)",
+   "lat": 41.9024,
+   "lon": -89.1019
+  },
+  {
+   "name": "Chicago, IL - Schiller Park (Schiller Park, IL)",
+   "lat": 41.9655,
+   "lon": -87.869
+  },
+  {
+   "name": "Chicago, IL - Willow Springs (Hodgkins, IL)",
+   "lat": 41.7487,
+   "lon": -87.8718
+  },
+  {
+   "name": "Chippewa Falls, WI (Chippewa Falls, WI)",
+   "lat": 44.9282,
+   "lon": -91.4109
+  },
+  {
+   "name": "Cincinnati, OH - Gest Street (Cincinnati, OH)",
+   "lat": 39.1076,
+   "lon": -84.5395
+  },
+  {
+   "name": "Cincinnati, OH - Queensgate Yard (Cincinnati, OH)",
+   "lat": 39.1215,
+   "lon": -84.5389
+  },
+  {
+   "name": "Cincinnati, OH - Sharonville (Sharonville, OH)",
+   "lat": 39.2659,
+   "lon": -84.4219
+  },
+  {
+   "name": "Cleveland, OH - Collinwood Yard (Cleveland, OH)",
+   "lat": 41.5657,
+   "lon": -81.5714
+  },
+  {
+   "name": "Cocoa, FL (Cocoa, FL)",
+   "lat": 28.3495,
+   "lon": -80.7311
+  },
+  {
+   "name": "Columbus, OH (Columbus, OH)",
+   "lat": 39.7903,
+   "lon": -82.9514
+  },
+  {
+   "name": "Columbus, OH - Buckeye Yard (Columbus, OH)",
+   "lat": 40.001,
+   "lon": -83.1265
+  },
+  {
+   "name": "Commerce, CA (Commerce, CA)",
+   "lat": 33.9926,
+   "lon": -118.1508
+  },
+  {
+   "name": "Council Bluffs, IA (Council Bluffs, IA)",
+   "lat": 41.2341,
+   "lon": -95.8341
+  },
+  {
+   "name": "Croxton, NJ (Jersey City, NJ)",
+   "lat": 40.756,
+   "lon": -74.0655
+  },
+  {
+   "name": "Dallas, TX - Mesquite (Mesquite, TX)",
+   "lat": 32.7816,
+   "lon": -96.6535
+  },
+  {
+   "name": "Dallas, TX - Wilmer (Dallas Intermodal Terminal) (Wilmer, TX)",
+   "lat": 32.6155,
+   "lon": -96.6935
+  },
+  {
+   "name": "Decatur, IL - ADM Intermodal Ramp (Midwest Inland Port) (Decatur, IL)",
+   "lat": 39.8709,
+   "lon": -88.9123
+  },
+  {
+   "name": "Denver, CO (Denver, CO)",
+   "lat": 39.774,
+   "lon": -104.9628
+  },
+  {
+   "name": "Denver, CO - Irondale (Denver, CO)",
+   "lat": 39.797,
+   "lon": -104.9954
+  },
+  {
+   "name": "Detroit, MI (Detroit, MI)",
+   "lat": 42.3173,
+   "lon": -83.1192
+  },
+  {
+   "name": "Detroit, MI - Delray (Detroit, MI)",
+   "lat": 42.2976,
+   "lon": -83.1222
+  },
+  {
+   "name": "Detroit, MI - Detroit Intermodal Terminal (Detroit, MI)",
+   "lat": 42.3786,
+   "lon": -83.231
+  },
+  {
+   "name": "Detroit, MI - Moterm Intermodal Facility (MOT) (Ferndale, MI)",
+   "lat": 42.4517,
+   "lon": -83.1177
+  },
+  {
+   "name": "Donna, TX - Rio Valley (Donna, TX)",
+   "lat": 26.1792,
+   "lon": -98.0905
+  },
+  {
+   "name": "CN Duluth Intermodal Terminal (Duluth, MN)",
+   "lat": 46.7582,
+   "lon": -92.0987
+  },
+  {
+   "name": "East St. Louis, IL (East St. Louis, IL)",
+   "lat": 38.6418,
+   "lon": -90.1062
+  },
+  {
+   "name": "El Paso, TX (El Paso, TX)",
+   "lat": 31.7521,
+   "lon": -106.4889
+  },
+  {
+   "name": "Elizabeth Marine Terminal, NJ - ExpressRail (Port Elizabeth) (Port Elizabeth, NJ)",
+   "lat": 40.6779,
+   "lon": -74.156
+  },
+  {
+   "name": "Erail, NJ (Elizabeth, NJ)",
+   "lat": 40.6594,
+   "lon": -74.176
+  },
+  {
+   "name": "Fairburn, GA (Fairburn, GA)",
+   "lat": 33.5448,
+   "lon": -84.6027
+  },
+  {
+   "name": "Fort Lauderdale, FL (Ft. Lauderdale, FL)",
+   "lat": 26.0856,
+   "lon": -80.1396
+  },
+  {
+   "name": "Fort Lauderdale, FL - Intermodal Container Transfer Facility (ICTF) (Fort Lauderdale, FL)",
+   "lat": 26.0755,
+   "lon": -80.1261
+  },
+  {
+   "name": "Fort Pierce, FL (Ft. Pierce, FL)",
+   "lat": 27.4398,
+   "lon": -80.323
+  },
+  {
+   "name": "Front Royal, VA - Virginia Inland Port (VIP) (Front Royal, VA)",
+   "lat": 38.9859,
+   "lon": -78.1765
+  },
+  {
+   "name": "Georgetown, KY (Georgetown, KY)",
+   "lat": 38.2716,
+   "lon": -84.5491
+  },
+  {
+   "name": "Greencastle, PA - Franklin County Regional Intermodal Facility (Greencastle, PA)",
+   "lat": 39.7596,
+   "lon": -77.7401
+  },
+  {
+   "name": "Greensboro, NC (Greensboro, NC)",
+   "lat": 36.057,
+   "lon": -79.8532
+  },
+  {
+   "name": "Harrisburg, PA (Harrisburg, PA)",
+   "lat": 40.3104,
+   "lon": -76.8929
+  },
+  {
+   "name": "Houston, TX - Englewood (Wallisville Rd) (Houston, TX)",
+   "lat": 29.7866,
+   "lon": -95.3174
+  },
+  {
+   "name": "Houston, TX - Kendleton (Beasley, TX)",
+   "lat": 29.46,
+   "lon": -95.9813
+  },
+  {
+   "name": "Barbours Cut Container Terminal (La Porte, TX)",
+   "lat": 29.6756,
+   "lon": -95.0046
+  },
+  {
+   "name": "Houston, TX - Pearland (Houston, TX)",
+   "lat": 29.6384,
+   "lon": -95.2922
+  },
+  {
+   "name": "Houston, TX - Settegast (Kirkpatrick, Blvd) (Houston, TX)",
+   "lat": 29.8125,
+   "lon": -95.2915
+  },
+  {
+   "name": "Huntsville, AL (Huntsville, AL)",
+   "lat": 34.6414,
+   "lon": -86.7607
+  },
+  {
+   "name": "Indianapolis, IN (Indianapolis, IN)",
+   "lat": 39.7479,
+   "lon": -86.1664
+  },
+  {
+   "name": "Indianapolis, IN - Plainfield Intermodal Terminal (Avon, IN)",
+   "lat": 39.7564,
+   "lon": -86.373
+  },
+  {
+   "name": "Jackson, MS (Richland, MS)",
+   "lat": 32.2564,
+   "lon": -90.1515
+  },
+  {
+   "name": "Jacksonville, FL (Jacksonville, FL)",
+   "lat": 30.387,
+   "lon": -81.7656
+  },
+  {
+   "name": "Jacksonville, FL (Jacksonville, FL)",
+   "lat": 30.369,
+   "lon": -81.7304
+  },
+  {
+   "name": "Jacksonville, FL - Fowden Intermodal Terminal (Jacksonville, FL)",
+   "lat": 30.2574,
+   "lon": -81.6139
+  },
+  {
+   "name": "Dames Point ICTF (JaxPort) (Jacksonville, FL)",
+   "lat": 30.3996,
+   "lon": -81.5605
+  },
+  {
+   "name": "Joliet, IL (Joliet, IL)",
+   "lat": 41.5386,
+   "lon": -88.0574
+  },
+  {
+   "name": "Kansas City - Logistics Park Kansas City (LPKC) (Edgerton, KS)",
+   "lat": 38.7865,
+   "lon": -94.9596
+  },
+  {
+   "name": "Kansas City, MO (Kansas City, MO)",
+   "lat": 39.1783,
+   "lon": -94.435
+  },
+  {
+   "name": "Kansas City, MO (Kansas City, MO)",
+   "lat": 39.126,
+   "lon": -94.5249
+  },
+  {
+   "name": "Kansas City, MO - International Freight Gateway (IFG) (Kansas City, MO)",
+   "lat": 38.8558,
+   "lon": -94.5576
+  },
+  {
+   "name": "Kearny, NJ (Kearny, NJ)",
+   "lat": 40.7403,
+   "lon": -74.0982
+  },
+  {
+   "name": "Laredo, TX (Laredo, TX)",
+   "lat": 27.4965,
+   "lon": -99.39
+  },
+  {
+   "name": "Laredo, TX (Laredo, TX)",
+   "lat": 27.6651,
+   "lon": -99.4625
+  },
+  {
+   "name": "Las Vegas, NV (Las Vegas, NV)",
+   "lat": 36.2732,
+   "lon": -115.0705
+  },
+  {
+   "name": "Lathrop, CA (French Camp, CA)",
+   "lat": 37.8365,
+   "lon": -121.2618
+  },
+  {
+   "name": "Little Ferry, NJ (North Bergen, NJ)",
+   "lat": 40.8253,
+   "lon": -74.0234
+  },
+  {
+   "name": "Long Beach, CA - ICTF (Long Beach, CA)",
+   "lat": 33.8074,
+   "lon": -118.2247
+  },
+  {
+   "name": "Long Beach, CA - International Transportation Service (ITS/Pier G) (Long Beach, CA)",
+   "lat": 33.7454,
+   "lon": -118.1913
+  },
+  {
+   "name": "Long Beach, CA - Long Beach Container Terminal (LBCT/Pier E) (Long Beach, CA)",
+   "lat": 33.7663,
+   "lon": -118.2115
+  },
+  {
+   "name": "Long Beach, CA - Pacific Container Terminal (PCT/Pier J) (Long Beach, CA)",
+   "lat": 33.7406,
+   "lon": -118.1899
+  },
+  {
+   "name": "Long Beach, CA - SSA Terminals (Pier A) (Long Beach, CA)",
+   "lat": 33.7724,
+   "lon": -118.2376
+  },
+  {
+   "name": "Los Angeles, CA - City of Industry (City of Industry, CA)",
+   "lat": 34.0087,
+   "lon": -117.933
+  },
+  {
+   "name": "Los Angeles, CA - East Washington Blvd (City of Commerce, CA)",
+   "lat": 34.0099,
+   "lon": -118.1866
+  },
+  {
+   "name": "Los Angeles, CA - Lamar St (LATC) (Los Angeles, CA)",
+   "lat": 34.0592,
+   "lon": -118.2243
+  },
+  {
+   "name": "Louisville, KY (Louisville, KY)",
+   "lat": 38.1376,
+   "lon": -85.7434
+  },
+  {
+   "name": "Louisville, KY - Appliance Park (Louisville, KY)",
+   "lat": 38.1823,
+   "lon": -85.6564
+  },
+  {
+   "name": "Louisville, KY - Buechel (Louisville, KY)",
+   "lat": 38.1867,
+   "lon": -85.6826
+  },
+  {
+   "name": "Marion, AR (Marion, AR)",
+   "lat": 35.193,
+   "lon": -90.2501
+  },
+  {
+   "name": "Marion, OH - Ohio Valley Intermodal Facility (Marion, OH)",
+   "lat": 40.6023,
+   "lon": -83.0576
+  },
+  {
+   "name": "Memphis, TN (Memphis, TN)",
+   "lat": 35.0234,
+   "lon": -89.8983
+  },
+  {
+   "name": "Memphis, TN (Memphis, TN)",
+   "lat": 35.0448,
+   "lon": -90.153
+  },
+  {
+   "name": "Memphis, TN - Rossville (Rossville, TN)",
+   "lat": 35.0139,
+   "lon": -89.5797
+  },
+  {
+   "name": "Miami, FL (Miami Springs, FL)",
+   "lat": 25.8334,
+   "lon": -80.3067
+  },
+  {
+   "name": "Miami, FL - Port of Miami Terminal Operating Company (POMTOC) (Miami, FL)",
+   "lat": 25.7711,
+   "lon": -80.1635
+  },
+  {
+   "name": "Minneapolis, MN - Shoreham Yard (Minneapolis, MN)",
+   "lat": 45.0204,
+   "lon": -93.2569
+  },
+  {
+   "name": "Morrisville, PA (East Langhorne, PA)",
+   "lat": 40.192,
+   "lon": -74.8466
+  },
+  {
+   "name": "Nashville, TN (Nashville, TN)",
+   "lat": 36.0908,
+   "lon": -86.7603
+  },
+  {
+   "name": "New Orleans, LA (Westwego, LA)",
+   "lat": 29.9261,
+   "lon": -90.1556
+  },
+  {
+   "name": "New Orleans, LA (Harahan, LA)",
+   "lat": 29.9711,
+   "lon": -90.1996
+  },
+  {
+   "name": "New Orleans, LA (New Orleans, LA)",
+   "lat": 29.9843,
+   "lon": -90.043
+  },
+  {
+   "name": "New Orleans, LA (Avondale, LA)",
+   "lat": 29.9178,
+   "lon": -90.2053
+  },
+  {
+   "name": "GCT New York, NY - ExpressRail (Staten Island) (Staten Island, NY)",
+   "lat": 40.6371,
+   "lon": -74.1865
+  },
+  {
+   "name": "Norfolk International Terminals (NIT) (Norfolk, VA)",
+   "lat": 36.915,
+   "lon": -76.3206
+  },
+  {
+   "name": "Norfolk, VA - Portlock (Chesapeake, VA)",
+   "lat": 36.8022,
+   "lon": -76.2644
+  },
+  {
+   "name": "Virginia International Gateway (VIG) (Portsmouth, VA)",
+   "lat": 36.8717,
+   "lon": -76.3554
+  },
+  {
+   "name": "North Baltimore, OH - Northwest Ohio ICTF (North Baltimore, OH)",
+   "lat": 41.1849,
+   "lon": -83.737
+  },
+  {
+   "name": "North Bergen, NJ (North Bergen, NJ)",
+   "lat": 40.7961,
+   "lon": -74.0272
+  },
+  {
+   "name": "Omaha, NE (Omaha, NE)",
+   "lat": 41.2177,
+   "lon": -95.9292
+  },
+  {
+   "name": "Philadelphia, PA - Greenwhich (Philadelphia, PA)",
+   "lat": 39.9009,
+   "lon": -75.1435
+  },
+  {
+   "name": "Phoenix, AZ - Glendale (Glendale, AZ)",
+   "lat": 33.5156,
+   "lon": -112.1606
+  },
+  {
+   "name": "Pittsburgh, PA (Wall, PA)",
+   "lat": 40.3972,
+   "lon": -79.7768
+  },
+  {
+   "name": "Pittsburgh, PA - McKees Rocks (McKees Rocks, PA)",
+   "lat": 40.4767,
+   "lon": -80.0623
+  },
+  {
+   "name": "Port Newark Container Terminal, NJ - ExpressRail (Newark) (Newark, NJ)",
+   "lat": 40.6903,
+   "lon": -74.1524
+  },
+  {
+   "name": "Portland, OR - Brooklyn (Portland, OR)",
+   "lat": 45.4872,
+   "lon": -122.6465
+  },
+  {
+   "name": "Portland, OR - Terminal 2 (Guilds Lake) (Portland, OR)",
+   "lat": 45.5522,
+   "lon": -122.7226
+  },
+  {
+   "name": "Portland, OR - Terminal 6 (Portland, OR)",
+   "lat": 45.639,
+   "lon": -122.7519
+  },
+  {
+   "name": "Rutherford, PA (Harrisburg, PA)",
+   "lat": 40.2596,
+   "lon": -76.7932
+  },
+  {
+   "name": "Salt Lake City, UT (Salt Lake City, UT)",
+   "lat": 40.7499,
+   "lon": -112.018
+  },
+  {
+   "name": "San Antonio, TX - SAIT (Von Ormy, TX)",
+   "lat": 29.3027,
+   "lon": -98.6387
+  },
+  {
+   "name": "San Bernardino, CA (San Bernardino, CA)",
+   "lat": 34.106,
+   "lon": -117.3203
+  },
+  {
+   "name": "Santa Teresa, NM (Santa Teresa, NM)",
+   "lat": 31.8959,
+   "lon": -106.7458
+  },
+  {
+   "name": "Savannah, GA (Savannah, GA)",
+   "lat": 32.0655,
+   "lon": -81.1472
+  },
+  {
+   "name": "Mason ICTF (Garden City, GA)",
+   "lat": 32.1373,
+   "lon": -81.1572
+  },
+  {
+   "name": "Chatham ICTF (Savannah, GA)",
+   "lat": 32.1218,
+   "lon": -81.1467
+  },
+  {
+   "name": "ARGO Yard (Seattle, WA)",
+   "lat": 47.562,
+   "lon": -122.3345
+  },
+  {
+   "name": "Seattle International Gateway (SIG) (Seattle, WA)",
+   "lat": 47.5781,
+   "lon": -122.3378
+  },
+  {
+   "name": "Seattle, WA - South Seattle (Seattle, WA)",
+   "lat": 47.4925,
+   "lon": -122.2689
+  },
+  {
+   "name": "Sparks, NV (Sparks, NV)",
+   "lat": 39.5325,
+   "lon": -119.7515
+  },
+  {
+   "name": "Spokane, WA (Spokane, WA)",
+   "lat": 47.674,
+   "lon": -117.3223
+  },
+  {
+   "name": "Springfield, MA (West Springfield, MA)",
+   "lat": 42.0984,
+   "lon": -72.6132
+  },
+  {
+   "name": "St. Louis, MO (St. Louis, MO)",
+   "lat": 38.6896,
+   "lon": -90.212
+  },
+  {
+   "name": "Dupo, IL - St. Louis (Dupo, IL)",
+   "lat": 38.5246,
+   "lon": -90.2095
+  },
+  {
+   "name": "St. Louis, MO - Lindenwood (St. Louis, MO)",
+   "lat": 38.6026,
+   "lon": -90.3137
+  },
+  {
+   "name": "St. Paul, MN - Midway (St. Paul, MN)",
+   "lat": 44.9701,
+   "lon": -93.1745
+  },
+  {
+   "name": "Stackbridge, MA (Worcester, MA)",
+   "lat": 42.2269,
+   "lon": -71.7921
+  },
+  {
+   "name": "Stockton, CA (Stockton, CA)",
+   "lat": 37.8993,
+   "lon": -121.1693
+  },
+  {
+   "name": "Syracuse, NY (Syracuse, NY)",
+   "lat": 43.0712,
+   "lon": -76.0361
+  },
+  {
+   "name": "Tampa, FL (Tampa, FL)",
+   "lat": 27.9608,
+   "lon": -82.384
+  },
+  {
+   "name": "Taylor, PA (Taylor, PA)",
+   "lat": 41.3853,
+   "lon": -75.706
+  },
+  {
+   "name": "Fenix Marine Services (Berths 302-305) (Terminal Island, CA)",
+   "lat": 33.7409,
+   "lon": -118.2535
+  },
+  {
+   "name": "APM Termianls Pacific (Berths 400-406) (Terminal Island, CA)",
+   "lat": 33.7284,
+   "lon": -118.2415
+  },
+  {
+   "name": "Total Terminals International (TTI/Pier T) (Long Beach, CA)",
+   "lat": 33.7612,
+   "lon": -118.2238
+  },
+  {
+   "name": "Toledo, OH (Toledo, OH)",
+   "lat": 41.6376,
+   "lon": -83.5895
+  },
+  {
+   "name": "Tucson, AZ (Tucson, AZ)",
+   "lat": 32.1264,
+   "lon": -110.8483
+  },
+  {
+   "name": "Wilmington, CA - TraPac Intermodal Container Transfer Facility (Wilmington, CA)",
+   "lat": 33.7703,
+   "lon": -118.2733
+  },
+  {
+   "name": "Container Terminal (South Gate) (Wilmington, NC)",
+   "lat": 34.1912,
+   "lon": -77.9524
+  },
+  {
+   "name": "Winter Haven, FL - Central Florida Intermodal Logistics Center (CFILC) (Winter Haven, FL)",
+   "lat": 27.94,
+   "lon": -81.6932
+  },
+  {
+   "name": "Worcester, MA (Worcester, MA)",
+   "lat": 42.26,
+   "lon": -71.7892
+  },
+  {
+   "name": "Wylie, TX (Wylie, TX)",
+   "lat": 33.0256,
+   "lon": -96.5095
+  }
+ ],
+ "coastal_ports": [
+  {
+   "name": "Houston, TX",
+   "lat": 29.73,
+   "lon": -95.27,
+   "basin": "Gulf"
+  },
+  {
+   "name": "Corpus Christi, TX",
+   "lat": 27.8,
+   "lon": -97.4,
+   "basin": "Gulf"
+  },
+  {
+   "name": "New Orleans, LA",
+   "lat": 29.94,
+   "lon": -90.06,
+   "basin": "Gulf"
+  },
+  {
+   "name": "Beaumont, TX",
+   "lat": 30.08,
+   "lon": -94.1,
+   "basin": "Gulf"
+  },
+  {
+   "name": "Lake Charles, LA",
+   "lat": 30.22,
+   "lon": -93.22,
+   "basin": "Gulf"
+  },
+  {
+   "name": "Mobile, AL",
+   "lat": 30.69,
+   "lon": -88.04,
+   "basin": "Gulf"
+  },
+  {
+   "name": "Tampa, FL",
+   "lat": 27.92,
+   "lon": -82.45,
+   "basin": "Gulf"
+  },
+  {
+   "name": "New York/NJ",
+   "lat": 40.49,
+   "lon": -74.26,
+   "basin": "Atlantic"
+  },
+  {
+   "name": "Norfolk, VA",
+   "lat": 36.92,
+   "lon": -76.33,
+   "basin": "Atlantic"
+  },
+  {
+   "name": "Savannah, GA",
+   "lat": 32.08,
+   "lon": -80.9,
+   "basin": "Atlantic"
+  },
+  {
+   "name": "Charleston, SC",
+   "lat": 32.78,
+   "lon": -79.92,
+   "basin": "Atlantic"
+  },
+  {
+   "name": "Jacksonville, FL",
+   "lat": 30.39,
+   "lon": -81.41,
+   "basin": "Atlantic"
+  },
+  {
+   "name": "Baltimore, MD",
+   "lat": 39.22,
+   "lon": -76.53,
+   "basin": "Atlantic"
+  },
+  {
+   "name": "Philadelphia, PA",
+   "lat": 39.9,
+   "lon": -75.13,
+   "basin": "Atlantic"
+  },
+  {
+   "name": "Wilmington, NC",
+   "lat": 34.2,
+   "lon": -77.95,
+   "basin": "Atlantic"
+  },
+  {
+   "name": "Los Angeles/Long Beach, CA",
+   "lat": 33.74,
+   "lon": -118.21,
+   "basin": "Pacific"
+  },
+  {
+   "name": "Oakland, CA",
+   "lat": 37.8,
+   "lon": -122.33,
+   "basin": "Pacific"
+  },
+  {
+   "name": "Seattle/Tacoma, WA",
+   "lat": 47.34,
+   "lon": -122.34,
+   "basin": "Pacific"
+  },
+  {
+   "name": "Portland, OR",
+   "lat": 46.18,
+   "lon": -123.83,
+   "basin": "Pacific"
+  },
+  {
+   "name": "Duluth, MN",
+   "lat": 46.77,
+   "lon": -92.09,
+   "basin": "GreatLakes"
+  },
+  {
+   "name": "Chicago, IL",
+   "lat": 41.85,
+   "lon": -87.61,
+   "basin": "GreatLakes"
+  },
+  {
+   "name": "Detroit, MI",
+   "lat": 42.31,
+   "lon": -83.08,
+   "basin": "GreatLakes"
+  },
+  {
+   "name": "Cleveland, OH",
+   "lat": 41.51,
+   "lon": -81.71,
+   "basin": "GreatLakes"
+  },
+  {
+   "name": "Toledo, OH",
+   "lat": 41.69,
+   "lon": -83.47,
+   "basin": "GreatLakes"
+  }
+ ],
+ "river_corridors": {
+  "mississippi": [
+   [
+    "New Orleans",
+    29.95,
+    -90.07
+   ],
+   [
+    "Baton Rouge",
+    30.45,
+    -91.19
+   ],
+   [
+    "Natchez",
+    31.56,
+    -91.4
+   ],
+   [
+    "Vicksburg",
+    32.34,
+    -90.88
+   ],
+   [
+    "Greenville MS",
+    33.41,
+    -91.06
+   ],
+   [
+    "Helena AR",
+    34.53,
+    -90.59
+   ],
+   [
+    "Memphis",
+    35.13,
+    -90.06
+   ],
+   [
+    "Cairo",
+    37.0,
+    -89.18
+   ],
+   [
+    "Cape Girardeau",
+    37.31,
+    -89.52
+   ],
+   [
+    "Chester IL",
+    37.91,
+    -89.82
+   ],
+   [
+    "St Louis",
+    38.63,
+    -90.19
+   ],
+   [
+    "Hannibal MO",
+    39.71,
+    -91.36
+   ],
+   [
+    "Quincy IL",
+    39.93,
+    -91.41
+   ],
+   [
+    "Burlington IA",
+    40.81,
+    -91.1
+   ],
+   [
+    "Quad Cities",
+    41.51,
+    -90.58
+   ],
+   [
+    "Dubuque",
+    42.5,
+    -90.66
+   ],
+   [
+    "La Crosse WI",
+    43.81,
+    -91.25
+   ],
+   [
+    "Winona MN",
+    44.05,
+    -91.64
+   ],
+   [
+    "St Paul MN",
+    44.94,
+    -93.09
+   ],
+   [
+    "Minneapolis",
+    44.98,
+    -93.26
+   ]
+  ],
+  "ohio": [
+   [
+    "Cairo",
+    37.0,
+    -89.18
+   ],
+   [
+    "Paducah KY",
+    37.08,
+    -88.6
+   ],
+   [
+    "Evansville IN",
+    37.97,
+    -87.57
+   ],
+   [
+    "Owensboro KY",
+    37.77,
+    -87.11
+   ],
+   [
+    "Louisville",
+    38.26,
+    -85.76
+   ],
+   [
+    "Cincinnati",
+    39.09,
+    -84.5
+   ],
+   [
+    "Huntington WV",
+    38.42,
+    -82.45
+   ],
+   [
+    "Wheeling WV",
+    40.06,
+    -80.72
+   ],
+   [
+    "Pittsburgh",
+    40.44,
+    -80.01
+   ]
+  ],
+  "missouri": [
+   [
+    "St Louis",
+    38.63,
+    -90.19
+   ],
+   [
+    "Jefferson City",
+    38.58,
+    -92.18
+   ],
+   [
+    "Kansas City",
+    39.11,
+    -94.63
+   ],
+   [
+    "St Joseph MO",
+    39.77,
+    -94.85
+   ],
+   [
+    "Omaha",
+    41.26,
+    -95.93
+   ],
+   [
+    "Sioux City IA",
+    42.5,
+    -96.41
+   ]
+  ],
+  "illinois": [
+   [
+    "Grafton IL",
+    38.97,
+    -90.43
+   ],
+   [
+    "Peoria IL",
+    40.69,
+    -89.59
+   ],
+   [
+    "Joliet IL",
+    41.52,
+    -88.08
+   ],
+   [
+    "Chicago",
+    41.85,
+    -87.61
+   ]
+  ],
+  "tennessee": [
+   [
+    "Paducah KY",
+    37.08,
+    -88.6
+   ],
+   [
+    "Pickwick TN",
+    35.07,
+    -88.25
+   ],
+   [
+    "Demopolis AL",
+    32.51,
+    -87.84
+   ],
+   [
+    "Mobile",
+    30.69,
+    -88.04
+   ]
+  ]
+ }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gas + CCS Atlas — US gas plants, CO₂ transport & storage</title>
+  <link rel="stylesheet" href="vendor/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Sidebar: controls -->
+  <aside id="sidebar">
+    <header class="brand">
+      <div class="brand-mark">GAS<br>CCS</div>
+      <div class="brand-text">
+        <h1>Gas + CCS Atlas</h1>
+        <p>US gas plants · CO₂ transport · storage</p>
+      </div>
+    </header>
+
+    <div class="panel-scroll">
+      <section class="control-group">
+        <h2>Map layers</h2>
+        <div id="overlay-list"></div>
+      </section>
+
+      <section class="control-group">
+        <h2 id="legend-title">Legend</h2>
+        <div id="legend"></div>
+      </section>
+
+      <section class="control-group">
+        <p class="hint">Click any <b>gas plant</b> for its CO₂ capture volume and the least-cost
+        route + cost to store it — switch the destination between the nearest existing storage well
+        and the nearest geologic basin inside the panel.</p>
+      </section>
+
+      <section class="control-group">
+        <button class="link-btn" id="open-method">Methodology &amp; sources ›</button>
+      </section>
+    </div>
+
+    <footer class="side-foot">
+      <div class="stat"><span id="stat-co2">—</span><label id="stat-label">Mt CO₂/yr from US gas power plants</label></div>
+      <div class="disclaimer">Screening tool · costs exclude capture and carry uncertainty — see methodology.</div>
+    </footer>
+  </aside>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Detail panel (slides in on click) -->
+  <aside id="detail" class="hidden">
+    <button class="detail-close" id="detail-close">×</button>
+    <div id="detail-body"></div>
+  </aside>
+
+  <!-- Methodology modal -->
+  <div id="method-modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="detail-close" id="method-close">×</button>
+      <div id="method-body"></div>
+    </div>
+  </div>
+
+  <!-- Hover tooltip -->
+  <div id="hovertip" class="hovertip hidden"></div>
+
+  <script src="vendor/leaflet.js"></script>
+  <script src="../data/geo/us_states.js"></script>
+  <script src="../data/geo/geometry_basins.js"></script>
+  <script src="data_bundle.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

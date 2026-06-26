@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+# Raw eGRID workbook (21 MB) — re-download via scripts/build_gas_plants.py header URL
+data/raw/*.xlsx
+node_modules/
