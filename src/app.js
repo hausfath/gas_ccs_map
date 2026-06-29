@@ -81,13 +81,13 @@
 
   map.createPane("landPane").style.zIndex = 400;
   map.createPane("basinPane").style.zIndex = 410;
-  map.createPane("plantPane").style.zIndex = 450;
-  // wells sit ABOVE plants so their canvas receives clicks (the plant canvas would otherwise
-  // swallow them) — wells are sparse, so the rare plant directly under a well is still reachable nearby
-  map.createPane("wellPane").style.zIndex = 460;
+  map.createPane("pointPane").style.zIndex = 450;
   map.createPane("routePane").style.zIndex = 470;
-  const plantRenderer = L.canvas({ pane: "plantPane" });
-  const wellRenderer = L.canvas({ pane: "wellPane" });
+  // Plants AND wells share ONE canvas renderer so Leaflet hit-tests both — two stacked canvases
+  // would let only the topmost receive clicks. Wells are drawn after plants, so they sit on top.
+  const pointRenderer = L.canvas({ pane: "pointPane" });
+  const plantRenderer = pointRenderer;
+  const wellRenderer = pointRenderer;
   const routeRenderer = L.svg({ pane: "routePane" });
 
   // ---------- static land basemap (non-interactive; the choropleth's stand-in) ----------
