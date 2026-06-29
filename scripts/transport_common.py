@@ -38,20 +38,15 @@ MODES = {
     # barge, so the solver rides them whenever a corridor is available. Low handling = a tie-in, not
     # a fresh compression train. usd_per_tkm anchored to large-network NETL/ZEP economies of scale.
     "pipeline": {"usd_per_tkm": 0.008, "handling_usd_per_t": 0.5, "detour": 1.10},
-    # A NEW dedicated pipeline a plant builds to reach storage when no existing trunk is near (the
-    # "build a spur to the nearest well / nearest trunk" baseline). Per t-km calibrated to NETL's
-    # ~$11/tCO₂ for 3.2 Mt/yr over 160 km; handling carries metering/booster. This per-t-km is later
-    # FLOW-SCALED per plant in build_transport.py (economies of scale: small plants pay more).
-    "pipeline_new": {"usd_per_tkm": 0.05, "handling_usd_per_t": 2.0, "detour": 1.20},
     "truck": {"usd_per_tkm": 0.12, "handling_usd_per_t": 2.0, "detour": 1.40},
     "rail":  {"usd_per_tkm": 0.035, "handling_usd_per_t": 4.0, "detour": 1.20},
     "ship":  {"usd_per_tkm": 0.015, "handling_usd_per_t": 5.0, "detour": 1.00},  # searoute = real km
     "barge": {"usd_per_tkm": 0.012, "handling_usd_per_t": 4.0, "detour": 1.05},  # inland river barge
 }
 CO2_LIQUEFACTION_USD_PER_T = 25.0   # once, to move captured CO₂ by truck/rail/ship/barge (not pipeline)
-# Pipeline modes move dense-phase CO₂; the others move it as discrete (liquefied/refrigerated) cargo
-# and so incur the one-off liquefaction cost. A pure-pipeline route skips it.
-PIPELINE_MODES = {"pipeline", "pipeline_new"}
+# Pipeline moves dense-phase CO₂; the others move it as discrete (liquefied/refrigerated) cargo and so
+# incur the one-off liquefaction cost. A pure-pipeline route skips it.
+PIPELINE_MODES = {"pipeline"}
 NON_PIPELINE_MODES = {"truck", "rail", "ship", "barge"}
 
 # Storage-well confidence tiers by permit status (how likely to be operational in time for a
@@ -309,12 +304,14 @@ class TransportGraph:
         O = "_O"
         self.nodes[O] = {"pos": list(origin_pos), "kind": "origin", "name": "origin"}
         self.adj[O] = []
+        # The plant trucks its CO₂ to the nearest access point — directly to a well, or onto an
+        # existing pipeline / rail terminal / port / river — then rides existing infrastructure.
+        # NO new dedicated pipelines are built (the cost of greenfield CO₂ pipelines is out of scope).
         onshore_wells = [w for w in self._wells if not self.nodes[w]["marine"]]
         for w in self._nearest(origin_pos, onshore_wells, ORIG_WELL):
-            self._edge(O, w, "pipeline_new", bidir=False)  # build a dedicated spur straight to a well
+            self._edge(O, w, "truck", bidir=False)
         for pl in self._nearest(origin_pos, self._pipes, ORIG_PIPE):
-            self._edge(O, pl, "pipeline_new", bidir=False)  # build a spur to the nearest trunk line
-        # genuine intermodal fallbacks (rarely cheapest for CO₂, but kept for completeness)
+            self._edge(O, pl, "truck", bidir=False)
         for t in self._nearest(origin_pos, self._terms, ORIG_RAIL):
             self._edge(O, t, "truck", bidir=False)
         for p in self._nearest(origin_pos, self._ports, ORIG_PORT):
@@ -322,19 +319,7 @@ class TransportGraph:
         for v in self._nearest(origin_pos, self._rivers, ORIG_RIVER):
             self._edge(O, v, "truck", bidir=False)
 
-        dist = {O: 0.0}
-        prev = {}
-        pq = [(0.0, O)]
-        while pq:
-            d, u = heapq.heappop(pq)
-            if d > dist.get(u, float("inf")):
-                continue
-            for v, c, mode, km, path in self.adj.get(u, []):
-                nd = d + c
-                if nd < dist.get(v, float("inf")):
-                    dist[v] = nd
-                    prev[v] = (u, mode, km, path)
-                    heapq.heappush(pq, (nd, v))
+        dist, prev = self._dijkstra(O)
 
         best = {"firm": None, "draft": None, "pending": None}   # tier -> (cost, well_id)
         for w in self._wells:
@@ -355,6 +340,58 @@ class TransportGraph:
         del self.nodes[O]
         del self.adj[O]
         return result
+
+    def _dijkstra(self, source):
+        """Standard Dijkstra over the (temporarily augmented) graph from `source`."""
+        dist = {source: 0.0}
+        prev = {}
+        pq = [(0.0, source)]
+        while pq:
+            d, u = heapq.heappop(pq)
+            if d > dist.get(u, float("inf")):
+                continue
+            for v, c, mode, km, path in self.adj.get(u, []):
+                nd = d + c
+                if nd < dist.get(v, float("inf")):
+                    dist[v] = nd
+                    prev[v] = (u, mode, km, path)
+                    heapq.heappush(pq, (nd, v))
+        return dist, prev
+
+    def least_cost_to_target(self, origin_pos, target_pos, target_name="storage"):
+        """Least-cost multimodal route from a plant to an ARBITRARY target point (e.g. the nearest
+        edge of a saline basin), using existing pipelines + truck/rail/barge/ship — NO new pipelines.
+        Returns (cost, legs) or None. The plant trucks onto existing infrastructure (or directly to
+        the target); nearby pipeline/rail/river/port nodes truck the last mile into the target."""
+        O, T = "_O", "_T"
+        self.nodes[O] = {"pos": list(origin_pos), "kind": "origin", "name": "origin"}
+        self.nodes[T] = {"pos": list(target_pos), "kind": "target", "name": target_name}
+        self.adj[O] = []
+        self.adj[T] = []
+        # plant trucks onto existing infrastructure (or straight to the target)
+        for pl in self._nearest(origin_pos, self._pipes, ORIG_PIPE):
+            self._edge(O, pl, "truck", bidir=False)
+        for t in self._nearest(origin_pos, self._terms, ORIG_RAIL):
+            self._edge(O, t, "truck", bidir=False)
+        for p in self._nearest(origin_pos, self._ports, ORIG_PORT):
+            self._edge(O, p, "truck", bidir=False)
+        for v in self._nearest(origin_pos, self._rivers, ORIG_RIVER):
+            self._edge(O, v, "truck", bidir=False)
+        self._edge(O, T, "truck", bidir=False)   # direct truck plant → basin edge
+        # last-mile truck from nearby existing infrastructure INTO the target
+        for pool, k in ((self._pipes, WELL_PIPE_LASTMILE), (self._terms, WELL_RAIL_LASTMILE),
+                        (self._rivers, WELL_RIVER_LASTMILE), (self._ports, WELL_PORT_LASTMILE)):
+            for n in self._nearest(target_pos, pool, k):
+                self._edge(n, T, "truck", bidir=False)
+
+        dist, prev = self._dijkstra(O)
+        out = None
+        if T in dist:
+            out = (round(dist[T], 2), self._reconstruct(prev, T))
+        for n in (O, T):
+            del self.nodes[n]
+            del self.adj[n]
+        return out
 
     def _reconstruct(self, prev, well):
         # walk back to origin collecting (a, b, mode, km, path)

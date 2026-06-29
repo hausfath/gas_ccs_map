@@ -23,7 +23,8 @@ offline — all data is bundled as JavaScript.
   and the **nearest geologic basin** — the route on the map and the cost update instantly.
 - CO₂ is routed by a multimodal least-cost engine that **rides existing CO₂ trunk pipelines**
   (Cortez, Bravo, Sheep Mountain, Central Basin, Denbury Green/NEJD, Greencore, …) where cheapest,
-  otherwise builds a new dedicated pipeline, with truck/rail/barge as fallbacks.
+  with truck / rail / barge as the fallback. **No new pipelines are built** — the cost reflects each
+  plant's access to *existing* infrastructure.
 
 ## Build the data
 

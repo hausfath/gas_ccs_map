@@ -28,13 +28,17 @@ Reuses the BiCRS multimodal least-cost engine (`scripts/transport_common.py`): a
 wells, rail terminals, coastal ports, river corridors, and — added here — **existing CO₂ trunk
 pipelines**. A Dijkstra solve from each plant returns the cheapest route to storage.
 
+**No new pipelines are built.** A plant trucks its CO₂ onto existing infrastructure — directly to a
+well, or onto an existing CO₂ pipeline / rail terminal / port / river — then rides it. Greenfield CO₂
+pipeline construction is out of scope, so the cost honestly reflects how far each plant is from
+*existing* transport and storage.
+
 Mode cost model (`$/tonne·km`, per-tonne handling, detour factor):
 
 | Mode | $/t·km | handling | notes |
 |------|--------|----------|-------|
 | `pipeline` (existing trunk) | 0.008 | 0.5 | already-built, shared, large throughput — **below barge**, so routes ride it when available |
-| `pipeline_new` (dedicated spur) | 0.05 | 2.0 | new line a plant builds to reach storage; **flow-scaled** per plant (below) |
-| truck | 0.12 | 2.0 | fallback (+ liquefaction) |
+| truck | 0.12 | 2.0 | first/last mile onto infrastructure, or direct (+ liquefaction) |
 | rail | 0.035 | 4.0 | fallback (+ liquefaction) |
 | barge | 0.012 | 4.0 | fallback (+ liquefaction) |
 | ship | 0.015 | 5.0 | fallback (+ liquefaction) |
@@ -43,15 +47,12 @@ Mode cost model (`$/tonne·km`, per-tonne handling, detour factor):
 US trunk lines (Cortez, Sheep Mountain, Bravo, Central Basin, Canyon Reef in the Permian; Denbury
 Green / NEJD / Free State on the Gulf Coast; Greencore and Beulah–Weyburn in the Rockies/Williston).
 Approximate, traced from public maps (Global Energy Monitor CO₂ pipeline tracker; NETL/EIA), not
-surveyed centerlines.
+surveyed centerlines. The `pipeline` per-t-km is anchored to large-network NETL/ZEP economies of scale.
 
-**New-pipeline cost is flow-scaled** (`build_transport.py`): `rate × (M / 2 Mtpa)^−0.4`, clamped
-[0.7×, 4×]. Calibrated so a ~2–3 Mt/yr plant building a ~160 km line lands near NETL's base case
-(~$11/tCO₂ for 3.2 Mt/yr over 160 km). Economies of scale: small plants pay more per tonne.
-
-**Liquefaction** — `$25/tCO₂` is added once **only when the chosen route uses a non-pipeline mode**
-(truck/rail/barge/ship move liquefied/refrigerated CO₂); pure-pipeline routes move dense-phase CO₂ and
-skip it.
+**Liquefaction** — `$25/tCO₂` is added once **when the chosen route uses a non-pipeline mode**
+(truck/rail/barge/ship move liquefied/refrigerated CO₂); a pure-pipeline route moves dense-phase CO₂
+and skips it. (Without new pipelines, most routes truck onto infrastructure first, so this usually
+applies.)
 
 ## 4. Storage cost
 
@@ -64,9 +65,10 @@ compression instead of long-haul transport.
 
 - **Capture cost is excluded.** The headline is transport + storage only; an indicative NGCC capture
   cost is ~$50–70/tCO₂ on top.
-- Routing is **great-circle, screening-level**; pipeline geometry is curated/approximate.
-- Per-tonne·km costs are flow-independent for the engine's path selection (only `pipeline_new` is
-  flow-scaled in the reported cost). For prioritisation, not project design.
+- **No new pipelines** — the model only uses existing infrastructure, so a plant far from any existing
+  pipeline/rail/well shows a high (truck-dominated) cost. That is the intended, conservative signal.
+- Routing is **great-circle, screening-level**; pipeline geometry is curated/approximate. Per-tonne·km
+  costs are flow-independent. For prioritisation, not project design.
 
 ## Sources
 

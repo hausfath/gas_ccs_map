@@ -40,12 +40,11 @@
   const WELL_COLOR = "#e85ad6";  // magenta — distinct from plant cost bands (green/amber/red) & routes
 
   const ROUTE_MODE = {
-    pipeline:     { color: "#3b9eff", label: "CO₂ pipeline (existing)", dash: null },
-    pipeline_new: { color: "#8fd0ff", label: "New CO₂ pipeline",        dash: "3 6" },
-    truck:        { color: "#e0843b", label: "Truck",                   dash: null },
-    rail:         { color: "#8a6fd4", label: "Rail",                    dash: null },
-    ship:         { color: "#46b3ff", label: "Ship (coastal)",          dash: "8 5" },
-    barge:        { color: "#3fb6a8", label: "Barge (river)",           dash: "8 5" },
+    pipeline: { color: "#3b9eff", label: "CO₂ pipeline (existing)", dash: null },
+    truck:    { color: "#e0843b", label: "Truck",                   dash: null },
+    rail:     { color: "#8a6fd4", label: "Rail",                    dash: null },
+    ship:     { color: "#46b3ff", label: "Ship (coastal)",          dash: "8 5" },
+    barge:    { color: "#3fb6a8", label: "Barge (river)",           dash: "8 5" },
   };
 
   function costColor(total) {
@@ -82,8 +81,10 @@
 
   map.createPane("landPane").style.zIndex = 400;
   map.createPane("basinPane").style.zIndex = 410;
-  map.createPane("wellPane").style.zIndex = 440;
   map.createPane("plantPane").style.zIndex = 450;
+  // wells sit ABOVE plants so their canvas receives clicks (the plant canvas would otherwise
+  // swallow them) — wells are sparse, so the rare plant directly under a well is still reachable nearby
+  map.createPane("wellPane").style.zIndex = 460;
   map.createPane("routePane").style.zIndex = 470;
   const plantRenderer = L.canvas({ pane: "plantPane" });
   const wellRenderer = L.canvas({ pane: "wellPane" });
@@ -233,8 +234,9 @@
 
     html += `<p class="hint" style="margin-top:14px">Costs are <b>screening estimates</b> for CO₂
       <b>transport + geologic storage</b> only — they exclude the capture cost (an indicative NGCC
-      capture cost is ~$50–70/tCO₂ on top). Routing rides existing CO₂ trunk pipelines where cheapest
-      and otherwise builds a new dedicated pipeline; great-circle screening, not surveyed routing.</p>`;
+      capture cost is ~$50–70/tCO₂ on top). Routing uses <b>existing</b> CO₂ trunk pipelines plus
+      truck / rail / barge — <b>no new pipelines are built</b>; great-circle screening, not surveyed
+      routing.</p>`;
 
     dom.detailBody.innerHTML = html;
 
@@ -256,14 +258,14 @@
     if (state.dest === "basin") {
       sub = d.in_basin
         ? `Plant sits over the <b>${d.dest_name}</b> saline basin → <b>on-site storage</b> (no long-haul transport).`
-        : `New dedicated pipeline to the <b>${d.dest_name}</b> basin · ${fmt(d.total_km)} km.`;
+        : `Least-cost route to the <b>${d.dest_name}</b> basin · ${modes || "—"} · ${fmt(d.total_km)} km.`;
     } else {
       sub = `Least-cost route to <b>${d.dest_name}</b>${d.confidence && d.confidence !== "firm" ? ` <span class="lowsup">(${d.confidence}-permit well)</span>` : ""} · ${modes || "—"} · ${fmt(d.total_km)} km.`;
     }
     const row = (lbl, v, bold) => `<div${bold ? ' style="grid-column:1/3"' : ""}>
       <div class="k">${lbl}</div><div class="v"${bold ? ' style="font-size:18px;font-weight:800"' : ""}>${v}</div></div>`;
-    let rows = row("Transport", money(d.transport_usd) + "/t");
-    if (d.liquefaction_usd > 0) rows += row("(incl. liquefaction)", money(d.liquefaction_usd) + "/t");
+    let rows = row("Transport (haulage)", money(d.transport_usd) + "/t");
+    if (d.liquefaction_usd > 0) rows += row("Liquefaction", money(d.liquefaction_usd) + "/t");
     rows += row("Geologic storage", money(d.storage_usd) + "/t");
     rows += row("Total transport + storage", money(d.total_usd) + "/tCO₂", true);
     rows += row("Annual cost", "$" + fmt(d.annual_usd_m) + "M/yr");
@@ -316,7 +318,7 @@
     html += `<div class="legend-row" style="margin-top:10px"><span class="box" style="background:${WELL_COLOR};border-radius:50%"></span>Existing CO₂ storage well</div>`;
     html += `<div class="legend-row"><span class="box" style="background:rgba(111,147,201,.3);border:1px solid #7aa6ff"></span>Saline storage basin</div>`;
     html += `<div class="legend-note" style="margin-top:10px">Route modes:</div>`;
-    ["pipeline", "pipeline_new", "truck", "rail"].forEach(m => {
+    ["pipeline", "truck", "rail", "barge"].forEach(m => {
       html += `<div class="legend-row"><span class="box" style="background:${ROUTE_MODE[m].color}"></span>${ROUTE_MODE[m].label}</div>`;
     });
     dom.legend.innerHTML = html;
@@ -340,12 +342,11 @@
     plant inside a basin can store on-site, and basins are treated as unconstrained capacity (the
     "assume wells aren't the binding constraint" view).</p>
     <h3>Transport</h3>
-    <p>The CO₂ is routed by a least-cost engine over real existing CO₂ trunk pipelines (Cortez, Bravo,
-    Sheep Mountain, Central Basin, Denbury Green/NEJD, Greencore, …), priced below barge so the route
-    rides them when available, otherwise building a new dedicated pipeline; truck/rail/barge remain as
-    fallbacks. New-pipeline cost is calibrated to NETL (~$11/tCO₂ for 3.2 Mt/yr over 160 km) and
-    flow-scaled (small plants pay more per tonne). Liquefaction ($25/t) is added only when a
-    non-pipeline mode is used.</p>
+    <p>The CO₂ is routed by a least-cost engine over real <b>existing</b> CO₂ trunk pipelines (Cortez,
+    Bravo, Sheep Mountain, Central Basin, Denbury Green/NEJD, Greencore, …), priced below barge so the
+    route rides them when available, with truck / rail / barge as the fallback. <b>No new pipelines are
+    built</b> — a plant trucks its CO₂ onto existing infrastructure or directly to storage. Liquefaction
+    ($25/tCO₂) is added once when a non-pipeline mode is used; a pure-pipeline route skips it.</p>
     <h3>Storage cost</h3>
     <p>Flat ~$10/tCO₂ onshore saline injection + monitoring (NETL FECM/NETL saline screening range
     $8–11/tCO₂). <b>Capture cost is excluded</b> — add ~$50–70/tCO₂ for an indicative NGCC capture
