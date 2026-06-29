@@ -3,7 +3,11 @@
 An interactive map of **every existing US natural-gas power plant** with the **least-cost CO₂
 transport + geologic storage** for each — the point-source companion to the BiCRS Atlas.
 
-## Open it
+## 🌎 Live map
+
+**<https://hausfath.github.io/gas_ccs_map/src/index.html>**
+
+## Open it locally
 
 Double-click **`src/index.html`** (or open it in any browser). No server, no build step, works
 offline — all data is bundled as JavaScript.
